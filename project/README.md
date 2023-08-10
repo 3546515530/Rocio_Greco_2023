@@ -21,10 +21,11 @@
         Registro de vendedores (cadena de distribucion corta: generalmente no hay intermediarios entre el fabricante y el consumidor).
         Ventas : Por producto /presentacion / precio.
 # Usuarios
-    Hay 3 tipos de usuarios registrados :
+    Hay 2 tipos de usuarios registrados :
         1. Superuser: admin / 1234 ( Acceso a todas las funciones : Crear/borrar y actualizar Categoria de productos, Lista de Productos, vendedores y ventas ).
-        2. Staff : Rafael / Pala1234 ( Acceso medio : Crear/borrar  y actualizar Categoria de productos, Lista de Productos, vendedores , sin posibilidad de editar Ventas).
-        3. Activo :Agustina / Agus1234 ( Acceso restringido : Visualizar Lista de Productos, vendedores y Ventas).
+        2. Activo :Rafael / Pala1234 ( Acceso restringido : Visualizar Lista de Productos, vendedores y Ventas).
     Cada uno con distintos niveles de acceso.
 
 # Video
+
+https://drive.google.com/drive/folders/1jXKExnJ7JeOCXQiugRCpIhxYDfhfoPcJ?role=writer
