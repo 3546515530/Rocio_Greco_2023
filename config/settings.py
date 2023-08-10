@@ -10,17 +10,28 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import sys
 from pathlib import Path
+
+#! Sirve para generar clave aleatoria para el proyecto
+from django.core.management.utils import get_random_secret_key
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+#! sys.path es una lista de rutas donde Python busca módulos para importar
+#! servirá para poder importar las aplicaciones de la carpeta apps
+
+APPS_DIR = BASE_DIR / "apps"
+sys.path.append(str(APPS_DIR))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i019_o03bn^)#g7#sx%8a4zm-7!zsa*v^x!4)%@^q-x-3m@%2+'
+SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cliente',
+    'Home',
+    'producto',
+    'venta',
 ]
 
 MIDDLEWARE = [
@@ -103,9 +118,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Mendoza'
 
 USE_I18N = True
 
@@ -121,3 +136,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = reverse_lazy("Home:login")
+# ! esto es necesario cuando views no redirecciona a otra url
+LOGIN_REDIRECT_URL = reverse_lazy("Home:index")
+
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
