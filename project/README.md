@@ -26,3 +26,5 @@
         2. Staff : Rafael / Pala1234 ( Acceso medio : Crear/borrar  y actualizar Categoria de productos, Lista de Productos, vendedores , sin posibilidad de editar Ventas).
         3. Activo :Agustina / Agus1234 ( Acceso restringido : Visualizar Lista de Productos, vendedores y Ventas).
     Cada uno con distintos niveles de acceso.
+
+# Video
