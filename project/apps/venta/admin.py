@@ -2,8 +2,22 @@ from django.contrib import admin
 
 # Register your models here.
 from . import models
+admin.site.site_title = "Ventas"
 
-admin.site.register(models.Vendedor)
+
+
+@admin.register(models.Vendedor)
+class VendedorAdmin(admin.ModelAdmin):
+    list_display = (
+        "usuario",
+        "celular",
+        "avatar"
+    )
+    list_display = ("usuario","celular","avatar",)
+    list_filter = ("usuario",)
+    search_fields = ("usuario","celular","avatar",)
+    ordering = ("usuario",)
+
 
 
 @admin.register(models.Venta)

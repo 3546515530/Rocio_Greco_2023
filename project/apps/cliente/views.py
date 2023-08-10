@@ -7,7 +7,7 @@ from django.urls import is_valid_path
 from .forms import ClienteForm
 
 # Create your views here.
-from .models import Cliente, Pais
+from .models import Cliente, Lugar
 
 
 def home(request):
@@ -20,22 +20,22 @@ def home(request):
 def crear_clientes(request):
     from datetime import date
 
-    p1 = Pais(nombre="Perú")
-    p2 = Pais(nombre="México")
-    p3 = Pais(nombre="El Salvador")
+    p1 = Lugar(nombre="Perú")
+    p2 = Lugar(nombre="México")
+    p3 = Lugar(nombre="El Salvador")
 
     p1.save()
     p2.save()
     p3.save()
 
     c1 = Cliente(nombre="Almendra", apellido="Ruiseñor",
-                 nacimiento=date(2015, 1, 1), pais_origen_id=p1)
+                 nacimiento=date(2015, 1, 1), lugar_de_entrega=p1)
     c2 = Cliente(nombre="Giordana", apellido="Tapello",
-                 nacimiento=date(2005, 2, 2), pais_origen_id=p2)
+                 nacimiento=date(2005, 2, 2), lugar_de_entrega=p2)
     c3 = Cliente(nombre="Macarena", apellido="Lito",
-                 nacimiento=date(1990, 1, 1), pais_origen_id=p3)
+                 nacimiento=date(1990, 1, 1), lugar_de_entrega=p3)
     c4 = Cliente(nombre="Jhiordana", apellido="Perez",
-                 nacimiento=date(2005, 1, 1), pais_origen_id=None)
+                 nacimiento=date(2005, 1, 1), lugar_de_entrega=None)
 
     c1.save()
     c2.save()
@@ -65,11 +65,11 @@ def busqueda(request: HttpRequest) -> HttpResponse:
         nacimiento__gt=date(2000, 1, 1))
 
     # País de origen vacío
-    cliente_pais = Cliente.objects.filter(pais_origen_id=None)
+    cliente_lugar = Cliente.objects.filter(pais_origen_id=None)
 
     contexto = {
         "clientes_nombre": cliente_nombre,
         "clientes_nacimiento": cliente_nacimiento,
-        "clientes_pais": cliente_pais
+        "clientes_lugar": cliente_lugar
     }
     return render(request, "cliente/search.html", contexto)

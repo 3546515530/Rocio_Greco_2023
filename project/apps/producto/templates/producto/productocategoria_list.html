@@ -8,13 +8,13 @@
     {% if object_list %}
 
         {% for object in object_list %}
-            <ul>
+        {% if user.is_superuser %}
                 <li>{{ object.nombre }}
-                    <a href="{% url 'producto:productocategoria_detail' object.id %}">Ver detalle</a>
+                    
                     <a href="{% url 'producto:productocategoria_update' object.id %}">Actualizar</a>
                     <a href="{% url 'producto:productocategoria_delete' object.id %}">Eliminar</a>
-                </li>
-            </ul>
+        {% endif %}
+                    <a href="{% url 'producto:productocategoria_detail' object.id %}">Ver detalle</a>
         {% endfor %}        
     {% else %}
         <p>no hay elementos</p>

@@ -31,23 +31,22 @@
 
         <!-- Heading Row-->
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'Home/img/caja.jpeg' %}" alt="..." /></div>
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'Home/img/TOSKA.png' %}" alt="..." /></div>
             <div class="col-lg-5">
-                <h1 class="font-weight-light">La Caja de Pandora</h1>
-                <p>La Caja de Pandora es un negocio único que te transportará a un mundo de maravillas y misterios. Nuestra selección de productos y servicios te sorprenderá, desde arte y antigüedades hasta experiencias inolvidables. Abre la caja y descubre un universo de posibilidades</p>
-                <a class="btn btn-primary" href="https://wa.me/5492619999999999" target="_blank">WhatsApp</a>
+                <h1 class="font-weight-light">TOSKA Cerveza Artesanal</h1>
+                <p>TOSKA es un startup relativamente nuevo.</p>
+                <p>Nos dedicamos a la produccion y venta de cerveza artesanal</p>
+                <p>Producimos la mejor birra de Cordoba</p>
+                <a class="btn btn-dark " href="https://wa.me/3546515530" target="_blank">WhatsApp</a>
             </div>
         </div>
 
         <!-- Content Row-->
         <div class="row gx-4 gx-lg-5">
 
-            {% include 'Home/card.html' with card="Tarjeta 1" saludo="¡Hola!" %}
-            {% include 'Home/card.html' with card="Tarjeta 2" %}
-            {% include 'Home/card.html' with card="Tarjeta 3" %}
-            {% include 'Home/card.html' with card="Tarjeta 4" %}
-
-        </div>
+            <div class="row gx-4 gx-lg-5">
+                {% include 'home/card.html' with card="Estilos"%}
+            </div>
     {% endblock INDEX_CONTENIDO %}
 
 {% endblock BASE_CONTENIDO %}
