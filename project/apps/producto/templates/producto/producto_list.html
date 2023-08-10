@@ -13,24 +13,27 @@
                 <input type="text" name="consulta" placeholder="Buscar...">
             </form>
         </div>
-
+        
+        <div>
         {% for object in object_list %}
-        {% if user.is_staff %}
-            <li>{{ object.nombre }} ${{ object.precio }}
-                <a href="{% url 'producto:producto_update' object.id %}" class="btn btn-primary  btn-sm">
-                    Actualizar</a>
-                <a href="{% url 'producto:producto_delete' object.id %}" class="btn btn-danger  btn-sm">
-                    Eliminar</a>
-        {% endif %}                
-                    <a href="{% url 'producto:producto_detail' object.id %}" class="btn btn-secondary btn-sm">
-                        Ver detalle</a>
-            </li>
-
-        {% endfor %}        
+        <ul>
+            <li>{{object.categoria}} | {{object.nombre}} | {{object.precio}}</li>
+    
+            <li>{% if user.is_staff %}</li>
+                        
+                    <a href="{% url 'producto:producto_update' object.id %}"class="btn btn-primary btn-sm">Actualizar</a>
+                    <a href="{% url 'producto:producto_delete' object.id %}"class="btn btn-danger btn-sm">Eliminar</a>
+                        
+                {% endif %}
+                    <a href="{% url 'producto:producto_detail' object.id %}"class="btn btn-secondary btn-sm">Ver detalle</a>
+                
+        </ul>
+        {% endfor %} 
+        </div>
+        
     {% else %}
         <p class="fs-4 fst-italic ">No hay registros ingresados</p>
     {% endif %}
-
 
     {% include 'Home/index_back.html' %}
 {% endblock INDEX_CONTENIDO %}

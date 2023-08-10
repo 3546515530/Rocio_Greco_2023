@@ -6,16 +6,21 @@
 
 {% block INDEX_CONTENIDO %}
     {% if object_list %}
-
         {% for object in object_list %}
-        {% if user.is_superuser %}
-                <li>{{ object.nombre }}
+        <ul>
+            <li>{{object.nombre}} | {{object.descripcion}}</li>
+
+            <li>{% if user.is_staff %}
                     
-                    <a href="{% url 'producto:productocategoria_update' object.id %}">Actualizar</a>
-                    <a href="{% url 'producto:productocategoria_delete' object.id %}">Eliminar</a>
-        {% endif %}
-                    <a href="{% url 'producto:productocategoria_detail' object.id %}">Ver detalle</a>
-        {% endfor %}        
+                    <a href="{% url 'producto:productocategoria_update' object.id %}"class="btn btn-primary  btn-sm">Actualizar</a>
+                    <a href="{% url 'producto:productocategoria_delete' object.id %}"class="btn btn-danger  btn-sm">Eliminar</a>
+                    
+                {% endif %}
+                    <a href="{% url 'producto:productocategoria_detail' object.id %}"class="btn btn-secondary btn-sm">Ver detalle</a>
+            </li>
+        </ul>
+        {% endfor %}
+ 
     {% else %}
         <p>no hay elementos</p>
 

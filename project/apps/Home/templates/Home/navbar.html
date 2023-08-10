@@ -15,9 +15,9 @@
                     <li class="nav-item"><a class="nav-link {% if request.path == "/venta/" %} active  {% endif %}" href="{% url 'venta:home' %}">Ventas</a></li>
                     <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }}</a></li>
                     {% if user.vendedor.avatar.url %}
-                        <li class="nav-item"> <img src="{{ user.vendedor.avatar.url }}" alt="avatar" class="" style="height: 30px;"></li>
+                        <li class="nav-item"> <img src="{{ user.vendedor.avatar.url }}" alt="avatar" class="" style="height: 40px;"></li>
                         {% else %}
-                        <li class="nav-item"> <img src="{% static 'venta/bob.PNG' %}" alt="avatar" class="" style="height: 30px;"></li>
+                        <li class="nav-item"> <img src="{% static 'venta/bob.PNG' %}" alt="avatar" class="" style="height: 40px;"></li>
                     {% endif %}  
                     <li class="nav-item"><a class="nav-link text-info" href="{% url 'Home:logout' %}">Logout</a></li>
                 {% else %}

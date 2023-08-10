@@ -7,14 +7,18 @@
     {% if object_list %}
 
         {% for object in object_list %}
-            <ul>
-                <li>{{ object.vendedor }} | {{ object.producto }} | {{ object.precio_total }}
-                    <a href="{% url 'venta:venta_detail' object.id %}">Ver detalle</a>
-                    <a href="{% url 'venta:venta_update' object.id %}">Actualizar</a>
-                    <a href="{% url 'venta:venta_delete' object.id %}">Eliminar</a>
-                </li>
-            </ul>
-        {% endfor %}        
+        <ul>
+            <li>{{object.vendedor}} | {{object.producto}} | $ {{object.precio_total}}</li>
+                <li>{% if user.is_superuser %}
+                    
+                    <a href="{% url 'venta:venta_update' object.id %}"class="btn btn-primary  btn-sm">Actualizar</a>
+                    <a href="{% url 'venta:venta_delete' object.id %}"class="btn btn-danger  btn-sm">Eliminar</a>
+                {% endif %}
+                    <a href="{% url 'venta:venta_detail' object.id %}"class="btn btn-secondary btn-sm">Ver detalle</a>
+
+            </li>
+        </ul>
+        {% endfor %}     
     {% else %}
         <p>no hay elementos</p>
 
