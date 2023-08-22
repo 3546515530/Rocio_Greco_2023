@@ -27,6 +27,7 @@ class VentaAdmin(admin.ModelAdmin):
         "producto",
         "cantidad",
         "precio_total",
+        "cliente",
         "fecha_venta"
     )
     list_display_links = ("producto",)

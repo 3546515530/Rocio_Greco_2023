@@ -17,6 +17,7 @@ class Venta(models.Model):
     vendedor = models.ForeignKey(Vendedor, on_delete=models.DO_NOTHING)
     producto = models.ForeignKey("producto.Producto", on_delete=models.DO_NOTHING)
     cantidad = models.PositiveIntegerField()
+    cliente = models.ForeignKey("cliente.Cliente", on_delete=models.DO_NOTHING)
     precio_total = models.DecimalField(max_digits=10, decimal_places=2, editable=False)
     fecha_venta = models.DateTimeField(default=timezone.now, editable=False)
 
